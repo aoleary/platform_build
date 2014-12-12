@@ -19,7 +19,6 @@ PRODUCT_PROPERTY_OVERRIDES :=
 PRODUCT_PACKAGES := \
 	ApiDemos \
 	CellBroadcastReceiver \
-	CubeLiveWallpapers \
 	CustomLocale \
 	Development \
 	Dialer \
@@ -29,13 +28,7 @@ PRODUCT_PACKAGES := \
 	Launcher3 \
 	Camera2 \
 	librs_jni \
-	libwnndict \
-	libWnnEngDic \
-	libWnnJpnDic \
 	LiveWallpapersPicker \
-	Mms \
-	OpenWnn \
-	Protips \
 	rild \
 	screenrecord \
 	SdkSetup \
