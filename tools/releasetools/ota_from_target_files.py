@@ -493,7 +493,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.AppendExtra("sleep (2);")
 
   # Dump fingerprints
-  script.Print("Target: %s" % target_fp)
+  #script.Print("Target: %s" % target_fp)
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
@@ -530,8 +530,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     script.Print(" Security patch: %s"%(securep));
     script.Print("");
     script.Print(" SDK version: %s"%(sdkver));
-    script.Print("");
-    script.Print(" Root status: Disabled");
     script.Print("");
     script.Print(" Build ID: %s"%(buildidn));
     script.Print("");
@@ -587,6 +585,8 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     vendor_diff = common.BlockDifference("vendor", vendor_tgt)
     vendor_diff.WriteScript(script, output_zip)
 
+  script.Print(" ")
+  script.Print("Flashing Kernel..")
   common.CheckSize(boot_img.data, "boot.img", OPTIONS.info_dict)
   common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
 
