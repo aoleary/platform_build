@@ -479,6 +479,18 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
     # Stage 3/3: Make changes.
     script.Comment("Stage 3/3")
+  script.Print("  Team DarkNess reDefined Presents   ")
+  script.Print("            AOSP PROJECT             ")
+  script.Print("          _                  _       ")
+  script.Print("     /\  | |                (_)      ")
+  script.Print("    /  \ | |_ ___  _ __ ___  _  ___  ")
+  script.Print("   / /\ \| __/ _ \| '_ ` _ \| |/ __| ")
+  script.Print("  / ____ \ || (_) | | | | | | | (__  ")
+  script.Print(" /_/    \_\__\___/|_| |_| |_|_|\___| ")
+  script.Print("                                     ")
+  script.Print("             Atomic OS 8.1           ")
+  script.Print("                                     ")
+  script.AppendExtra("sleep (2);")
 
   # Dump fingerprints
   script.Print("Target: %s" % target_fp)
