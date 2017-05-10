@@ -179,22 +179,22 @@ include $(BUILD_SYSTEM)/node_fns.mk
 include $(BUILD_SYSTEM)/product.mk
 include $(BUILD_SYSTEM)/device.mk
 
-# A CUSTOM build needs only the CUSTOM product makefiles.
-ifneq ($(CUSTOM_BUILD),)
-  all_product_configs := $(shell ls vendor/aosp/products/jdc_$(CUSTOM_BUILD).mk)
+ifneq ($(strip $(TARGET_BUILD_APPS)),)
+# An unbundled app build needs only the core product makefiles.
+all_product_configs := $(call get-product-makefiles,\
+    $(SRC_TARGET_DIR)/product/AndroidProducts.mk)
 else
-  ifneq ($(strip $(TARGET_BUILD_APPS)),)
-  # An unbundled app build needs only the core product makefiles.
-  all_product_configs := $(call get-product-makefiles,\
-      $(SRC_TARGET_DIR)/product/AndroidProducts.mk)
+  ifneq ($(AOS_BUILD),)
+    all_product_configs := $(shell ls device/*/$(AOS_BUILD)/aos.mk)
   else
     # Read in all of the product definitions specified by the AndroidProducts.mk
     # files in the tree.
     all_product_configs := $(get-all-product-makefiles)
-  endif # TARGET_BUILD_APPS
-endif # CUSTOM_BUILD
+  endif # AOS_BUILD
+endif
 
-ifeq ($(CUSTOM_BUILD),)
+all_named_products :=
+ifeq ($(AOS_BUILD),)
 # Find the product config makefile for the current product.
 # all_product_configs consists items like:
 # <product_name>:<path_to_the_product_makefile>

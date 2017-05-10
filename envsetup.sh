@@ -126,12 +126,12 @@ function check_product()
         return
     fi
 
-    if (echo -n $1 | grep -q -e "^jdc_") ; then
-       CUSTOM_BUILD=$(echo -n $1 | sed -e 's/^jdc_//g')
+    if (echo -n $1 | grep -q -e "^aos_") ; then
+       AOS_BUILD=$(echo -n $1 | sed -e 's/^aos_//g')
     else
-       CUSTOM_BUILD=
+       AOS_BUILD=
     fi
-    export CUSTOM_BUILD
+    export AOS_BUILD
 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \
