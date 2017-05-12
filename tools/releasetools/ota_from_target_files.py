@@ -693,13 +693,15 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
     # Stage 3/3: Make changes.
     script.Comment("Stage 3/3")
-
-  script.Print("      _____  ___________")
-  script.Print("  __ / / _ \/ ___/_  __/__ ___ ___ _  ")
-  script.Print(" / // / // / /__  / / / -_) _ `/  ' \ ")
-  script.Print(" \___/____/\___/ /_/  \__/\_,_/_/_/_/ ")
   script.Print(" ")
-  script.Print("The Android Open Source Project 7.1.2")
+  script.Print("          _                  _       ")
+  script.Print("     /\  | |                (_)      ")
+  script.Print("    /  \ | |_ ___  _ __ ___  _  ___  ")
+  script.Print("   / /\ \| __/ _ \| '_ ` _ \| |/ __| ")
+  script.Print("  / ____ \ || (_) | | | | | | | (__  ")
+  script.Print(" /_/    \_\__\___/|_| |_| |_|_|\___| ")
+  script.Print(" ")
+  script.Print("   Atomic OS Project 7.1.2")
   script.Print(" ")
   script.AppendExtra("sleep (2);")
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
