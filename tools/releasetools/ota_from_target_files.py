@@ -750,10 +750,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     system_diff.WriteScript(script, output_zip)
   else:
     script.Print("Formatting /system...");
-    script.AppendExtra("run_program(\"/tmp/install/bin/format.sh\");")
+    script.FormatPartition("/system")
     script.Print("Mounting /system...");
-    script.Mount("/system")
-    script.Print("Installing...");
+    script.Mount("/system", recovery_mount_options)
     if not has_recovery_patch:
       script.UnpackPackageDir("recovery", "/system")
     script.UnpackPackageDir("system", "/system")
