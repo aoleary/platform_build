@@ -116,7 +116,7 @@ PRODUCT_SYSTEM_SERVER_APPS += \
     FusedLocation \
     InputDevices \
     SettingsProvider \
-    WallpaperBackup \
+    WallpaperBackup
 
 # The set of packages we want to force 'speed' compilation on.
 PRODUCT_DEXPREOPT_SPEED_APPS := \
