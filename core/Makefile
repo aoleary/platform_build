@@ -2188,9 +2188,9 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE)
 
 TARGET_PACKAGE := $(PRODUCT_OUT)/Atomic-OS-$(AOS_VERSION)-$(TARGET_DEVICE)-$(shell date -u +%Y%m%d-%H%M)-$(AOS_BUILD_TYPE).zip
 
-.PHONY: otapackage aos bacon
+.PHONY: otapackage atomic bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
-aos: bacon
+atomic: bacon
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(TARGET_PACKAGE) > $(TARGET_PACKAGE).md5sum
