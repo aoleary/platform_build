@@ -128,7 +128,7 @@ endif # CALLED_FROM_SETUP
 
 ifneq ($(PRINT_BUILD_CONFIG),)
 HOST_OS_EXTRA:=$(shell python -c "import platform; print(platform.platform())")
-$(info =====Team DarkNess reDefined Presents=======)
+$(info =====Team DarkNess Presents=======)
 $(info   PLATFORM_VERSION_CODENAME=$(PLATFORM_VERSION_CODENAME))
 $(info   PLATFORM_VERSION=$(PLATFORM_VERSION))
 $(info   AOS_MOD_VERSION=$(AOS_MOD_VERSION))
