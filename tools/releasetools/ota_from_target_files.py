@@ -815,6 +815,16 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.ShowProgress(0.05, 5)
   script.WriteRawImage("/boot", "boot.img")
 
+  if OPTIONS.info_dict.get("with_root") == "true":
+    #Magisk
+      script.Print(" ")
+      script.Print("Flashing Magisk...")
+      script.Print(" ")
+      common.ZipWriteStr(output_zip, "magisk/magisk.zip",
+                     ""+input_zip.read("SYSTEM/addon.d/magisk.zip"))
+      script.FlashMagisk()
+      script.Print(" ")
+
   script.ShowProgress(0.2, 10)
   device_specific.FullOTA_InstallEnd()
 
@@ -822,18 +832,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
     script.AppendExtra(OPTIONS.extra_script)
 
   script.UnmountAll()
-  
-  # Install Magisk.
-  
-  script.Print("Extracting Magisk...");
-  script.AppendExtra('package_extract_dir("install/magisk", "/tmp/magisk");')
-  script.AppendExtra('run_program("/sbin/busybox", "unzip", "/tmp/magisk/Magisk.zip", "META-INF/com/google/android/update-binary", "-d", "/tmp/magisk");')
-  script.Print("Installing Magisk...");
-  script.AppendExtra('run_program("/sbin/busybox", "sh", "/tmp/magisk/META-INF/com/google/android/update-binary", "null", "1", "/tmp/magisk/Magisk.zip");')
-
-  script.Print("Cleaning up...");
-  script.AppendExtra('delete_recursive("/tmp/magisk");')
-
   script.Print("Installation complete!");
 
   if OPTIONS.wipe_user_data:
