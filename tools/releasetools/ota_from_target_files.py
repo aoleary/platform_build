@@ -693,7 +693,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
     # Stage 3/3: Make changes.
     script.Comment("Stage 3/3")
-  script.Print("  Team DarkNess reDefined Presents   ")
+  script.Print("      Team DarkNess Presents         ")
   script.Print("            AOSP PROJECT             ")
   script.Print("          _                  _       ")
   script.Print("     /\  | |                (_)      ")
