@@ -18,7 +18,6 @@ PRODUCT_PROPERTY_OVERRIDES :=
 
 PRODUCT_PACKAGES := \
 	ApiDemos \
-	CellBroadcastReceiver \
 	CustomLocale \
 	Development \
 	Dialer \
