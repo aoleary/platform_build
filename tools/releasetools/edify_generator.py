@@ -161,6 +161,9 @@ class EdifyGenerator(object):
   def RunBackup(self, command):
     self.script.append(('run_program("/tmp/install/bin/backuptool.sh", "%s");' % command))
 
+  def RunCleanCache(self):
+    self.script.append(('run_program("/system/bin/clean_cache.sh");'))
+
   def ValidateSignatures(self, command):
     self.script.append('package_extract_file("META-INF/org/aos/releasekey", "/tmp/releasekey");')
     # Exit code 124 == abort. run_program returns raw, so left-shift 8bit
